@@ -2,7 +2,6 @@ unind <-
 function(object = NULL, indents = 1,
          front.remove = 1, back.remove = 0, tb.remove =  FALSE, 
          top.remove = 1, bottom.remove = 1) {
-
     if (!is.null(indents)) front.remove <- indents*4
     y <- if (is.null(object)) {
         rbind(unlist(readClipboard()))
