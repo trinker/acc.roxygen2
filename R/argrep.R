@@ -1,6 +1,5 @@
 argrep <-
 function(pars = NULL) {
-    require(qdap)
     if (is.null(pars)) {
         pars <- unlist(as.list(readClipboard()))
     }
