@@ -1,10 +1,9 @@
-pars4rox <-function(pars = "clipboard", dots = FALSE) {
-	if (pars == "clipboard") {
+pars4rox <-function(pars = NULL, dots = FALSE) {
+	if (is.null(pars)) {
 		pars <- unlist(as.list(readClipboard()))
 	}
-	require(qdap)
-	x <- paste0("#' @param", spaste(qdap::qcv(terms=pars, split = ",")))
-	x <- qdap::Trim(sapply(strsplit(x, "="), function(x) x[1]))
+	x <- paste0("#' @param", spaste(qcv(terms=pars, split = ",")))
+	x <- Trim(sapply(strsplit(x, "="), function(x) x[1]))
 	zz <- matrix(rbind(x), ncol=1)
 	if (dots) {
 		zz <- rbind(zz, "#' @param \\ldots ")

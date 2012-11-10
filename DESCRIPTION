@@ -6,6 +6,7 @@ Date: 2012-05-09
 Author: Tyler Rinker
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends: R (>= 2.15.1), roxygen2, devtools
+Imports: qdap
 LazyData: true
 ByteCompile: yes
 Description: A (eventual) collection of tools to make roxygen2 even easier to use (note these functions are designed for windows users and may be extended to Mac)

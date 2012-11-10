@@ -1,6 +1,6 @@
 ann <-
-function(object = "clipboard", space = 1, symbol="#") {
-    y <- if (object == "clipboard") {
+function(object = NULL, space = 1, symbol="#") {
+    y <- if (is.null(object)) {
         as.list(readClipboard())
     } else {
         strsplit(as.vector(object), "[\n]")

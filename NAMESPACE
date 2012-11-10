@@ -1,5 +1,7 @@
 export(pars4rox)
 export(roxann)
 export(unroxann)
+export(argrep)
+import(qdap)
 import(devtools)
 import(roxygen2)
