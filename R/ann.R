@@ -7,7 +7,7 @@ function(object = NULL, space = 1, symbol="#") {
     }
     spacer <- function(x) paste(symbol, paste(rep(" ", space), 
         collapse = ""), x, sep="")
-    z <- if (object == "clipboard") {
+    z <- if (is.null(object)) {
         sapply(y, spacer)
     } else {
         lapply(y, spacer)
