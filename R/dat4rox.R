@@ -25,13 +25,70 @@ dat4rox <- function(..., file = NULL, append = FALSE) {
     dat.list <- invisible(lapply(dat.sets, get))
     names(dat.list) <- dat.sets
     dat.file <- function(dat, name, file = "", append = FALSE) {
+        is.enviroment <- function(x) class(x) == "environment"
         x <- "#'"
-        out <- c("#'", x, "#' A dataset containing", x, "#' \\itemize{", 
-            paste("#'   \\item ", colnames(dat), ".", sep = ""),
-            "#' }", x, "#' @docType data", "#' @keywords datasets",
+        what <- function(x) {
+            if (is.data.frame(x)) {
+                return("data frame")
+            }
+            if (is.list(x) & !is.data.frame(x)) {
+                return("list")
+            }
+            if (is.vector(x)) {
+                return("vector")
+            }
+            if (class(x) == "character") {
+                return("character vector")
+            }            
+            if (is.environment(x)) {
+                return("environment")
+            }
+        }
+        type <- what(dat)
+        if (type == "environment") {
+            desc <- "#' A dataset containing an environment"
+        } else {
+            if (type == "data frame") {
+                desc <- "#' A dataset containing"
+            } else {
+                if (type %in% c("character vector", "vector", "list")) {
+                    desc <- paste("#' A dataset containing a", type)
+                }
+            }
+        }
+        if (is.data.frame(dat)) {
+        	dets <- c("#' \\itemize{", paste("#'   \\item ", colnames(dat), ".", 
+        	    sep = ""), "#' }")
+        } else {
+            if (is.vector(dat) | is.enviroment(dat) | class(dat) == "character") {
+            	dets <- x
+            } else {
+                if (!is.data.frame(dat) && is.list(dat)) {
+        	        dets <- c("#' \\describe{", paste("#'   \\item{", 
+                        names(dat), "}{}", sep = ""), "#' }")
+                }
+            }
+        }
+        if (type == "data frame") {
+            elems <- c(nrow(dat), "rows and", ncol(dat), "variables")
+        } else {
+            if (type %in% c("character vector", "vector")) {
+                elems <- c(length(dat), "elements")
+            } else {
+                if (type == "list") {
+                    elems <- c(length(dat), "elements")
+                } else {
+                    if (type == "environment") {
+                        elems <- NULL
+                    }
+                }
+            }    
+        }
+        out <- c("#'", x, desc, x, "#' @details",
+            dets, x, "#' @docType data", "#' @keywords datasets",
             paste("#' @name", name), paste0("#' @usage data(", name, ")"),
-            paste("#' @format A data frame with", nrow(dat), "rows and", 
-                ncol(dat), "variables"), "#' @references", "NULL\n")
+            paste("#' @format A", type, "with", paste(elems, collapse = " ")), 
+            "#' @references", "NULL\n")
         cat(paste(out, "\n", collapse=""), file = file, append = append)
     }
     invisible(lapply(seq_along(dat.list), function(i) {
@@ -47,3 +104,4 @@ dat4rox <- function(..., file = NULL, append = FALSE) {
         }))
     }
 }
+
