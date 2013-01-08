@@ -1,8 +1,8 @@
-\name{roxann}
-\alias{roxann}
+\name{unra}
+\alias{unra}
 \title{R}
 \usage{
-  roxann()
+  unra()
 }
 \description{
   R

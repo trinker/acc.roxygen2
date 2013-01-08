@@ -1,3 +1,10 @@
+#' R
+#'
+#' R
+#' @param object
+#' @param space
+#' @param symbol
+#' @export
 ann <-
 function(object = NULL, space = 1, symbol="#") {
     y <- if (is.null(object)) {

@@ -1,3 +1,8 @@
+#' R
+#'
+#' R
+#' @param args
+#' @export
 argrep <-
 function(pars = NULL) {
     if (is.null(pars)) {

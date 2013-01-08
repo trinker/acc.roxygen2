@@ -1,3 +1,9 @@
+#' R
+#'
+#' R
+#' @param pars
+#' @param dots
+#' @export
 pars4rox <-function(pars = NULL, dots = FALSE) {
 	if (is.null(pars)) {
 		pars <- unlist(as.list(readClipboard()))
