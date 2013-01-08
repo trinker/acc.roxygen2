@@ -1,3 +1,4 @@
+#internal not exported
 unind <-
 function(object = NULL, indents = 1,
          front.remove = 1, back.remove = 0, tb.remove =  FALSE, 
