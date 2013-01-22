@@ -1,6 +1,7 @@
 export(ann)
 export(argrep)
 export(dat4rox)
+export(examples)
 export(pars4rox)
 export(roxann)
 export(unra)
