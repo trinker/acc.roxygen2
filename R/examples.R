@@ -24,7 +24,10 @@ function(file = "examples.txt", path = "C:/Users/trinker/GitHub/qdap/R/") {
         x[starts[i]:ends[i], ]
     })
     L1 <- lapply(L1, function(x){
-        x[!x$text %in% c("#' \\dontrun{", "#' }"), ]
+        if(grepl(x[1, 2], "#' \\dontrun{", fixed = TRUE)) {
+            x <- tail(head(x, -1), -1)
+        }
+        x
     })
     names(L1) <- sapply(L1, function(x) gsub(".R", "", x[1,1], fixed = TRUE))
     invisible(lapply(seq_along(L1), function(i){
