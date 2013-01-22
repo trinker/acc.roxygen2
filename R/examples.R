@@ -20,6 +20,9 @@ function(file = "examples.txt", path = "C:/Users/trinker/GitHub/qdap/R/") {
     ends <- sapply(seq_along(starts), function(i) {
         nonrox[starts[i] < nonrox][1]
         }, USE.NAMES = FALSE) - 1
+    select <- ends - starts != 0 
+    ends <- ends[selects]
+    starts <- ends[starts]
     L1 <- lapply(seq_along(ends), function(i) {
         x[starts[i]:ends[i], ]
     })
