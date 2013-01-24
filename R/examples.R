@@ -20,14 +20,14 @@ function(file = "examples.txt", path = "C:/Users/trinker/GitHub/qdap/R/") {
     ends <- sapply(seq_along(starts), function(i) {
         nonrox[starts[i] < nonrox][1]
         }, USE.NAMES = FALSE) - 1
-    select <- ends - starts != 0 
+    selects <- ends - starts != 0 
     ends <- ends[selects]
-    starts <- ends[starts]
+    starts <- starts[selects]
     L1 <- lapply(seq_along(ends), function(i) {
         x[starts[i]:ends[i], ]
     })
     L1 <- lapply(L1, function(x){
-        if(grepl(x[1, 2], "#' \\dontrun{", fixed = TRUE)) {
+        if(grepl("#' \\dontrun{", x[1, 2], fixed = TRUE)) {
             x <- tail(head(x, -1), -1)
         }
         x

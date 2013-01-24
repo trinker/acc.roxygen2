@@ -27,3 +27,7 @@ Collate:
     'unind.R'
     'unra.R'
     'examples.R'
+    'doc_check.R'
+    'removeDR.R'
+    'rmd.R'
+    'search_repo.R'
