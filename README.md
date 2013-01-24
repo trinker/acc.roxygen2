@@ -1,7 +1,9 @@
 acc.roxygen2
 ============
 
-A (eventual) collection of tools to make roxygen2 even easier to use (note these functions are designed for windows users and may be extended to Mac)
+Currently for personal use.  A (eventual) collection of tools to make roxygen2 
+even easier to use (note these functions are designed for windows users and may 
+be extended to Mac)
 
 ## Installation
 
