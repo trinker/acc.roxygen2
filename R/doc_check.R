@@ -2,11 +2,14 @@
 #'
 #' Generates text of roxygen documentation for quick spell check.
 #' 
-#' @param in_path Path to the R documentation in a repo.
+#' @param repo Character string indicating repo/package name.
 #' @param out_path The desired file out path.
+#' @param base.git Path the location of where git repos are stored.
 #' @export
-doc_check <- function(in_path="C:/Users/trinker/GitHub/qdap/R", out_path=paste0(dt, "spell_check.doc")) {
+doc_check <- function(repo, out_path=paste0(dt, "spell_check.doc"),
+	base.git = getOption("base.git")) {
     require(qdap)
+    in_path <- paste0(base.git, "/", repo, "/R/")
     files <- paste0(in_path, "/", dir(in_path))
     m <- suppressWarnings(lapply(files, readLines))
     names(m) <- dir(in_path)

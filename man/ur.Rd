@@ -1,8 +1,8 @@
-\name{unra}
-\alias{unra}
+\name{ur}
+\alias{ur}
 \title{R}
 \usage{
-  unra()
+  ur()
 }
 \description{
   R
