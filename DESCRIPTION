@@ -31,3 +31,4 @@ Collate:
     'rmd.R'
     'search_repo.R'
     'ur.R'
+    'expand_statdoc.R'

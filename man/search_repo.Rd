@@ -4,7 +4,7 @@
 \usage{
   search_repo(..., repo = "qdap",
     base.git = "C:/Users/trinker/GitHub/", terms = NULL,
-    split = "\\|")
+    split = "\\|", char.keep = NULL)
 }
 \arguments{
   \item{\ldots}{Terms to search for in the .R files.  No
@@ -23,6 +23,13 @@
   \item{split}{Character vector of length one to use for
   splitting (i.e. the separator used in the vector).  For
   use with the argument \code{terms}.}
+
+  \item{char.keep}{A character vector of symbol character
+  (i.e. punctuation) that strip should keep.  The default
+  is to strip everything except apostrophes.
+  \code{\link[qdap]{termco}} attempts to auto detect
+  characters to keep based on the elements in
+  \code{match.list}.}
 }
 \description{
   Generates counts of terms found in the .R documentation.

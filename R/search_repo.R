@@ -10,10 +10,14 @@
 #' are the term separators).
 #' @param split Character vector of length one to use for splitting (i.e. the 
 #' separator used in the vector).  For use with the argument \code{terms}.
-#' @import qdap
+#' @param char.keep A character vector of symbol character (i.e. punctuation) 
+#' that strip should keep.  The default is to strip everything except 
+#' apostrophes. \code{\link[qdap]{termco}} attempts to auto detect characters to 
+#' keep based on the elements in \code{match.list}. 
 #' @export
 search_repo <- function(..., repo = "qdap", 
-    base.git = "C:/Users/trinker/GitHub/", terms = NULL, split = "\\|") {
+    base.git = "C:/Users/trinker/GitHub/", terms = NULL, split = "\\|", 
+    char.keep = NULL) {
     require(qdap)
     path <- paste0(base.git, "/", repo, "/R/")
     if (!is.null(terms)) {
@@ -30,7 +34,7 @@ search_repo <- function(..., repo = "qdap",
     n <- do.call(rbind, lapply(seq_along(m), function(i){
         data.frame(fun=rep(names(m)[i], length(m[[i]])), text=m[[i]])
     }))
-    x <- with(n, termco(text, fun, z))
+    x <- with(n, termco(text, fun, z, char.keep = char.keep))
     y <- x$raw[rowSums(x$raw[, -c(1:2), drop=FALSE]) !=0, ]
     setwd(WD)
     left.just(replacer(y), 1)[, -2]
