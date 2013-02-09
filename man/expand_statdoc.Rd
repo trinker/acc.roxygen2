@@ -2,14 +2,19 @@
 \alias{expand_statdoc}
 \title{Expand staticdocs index.html File}
 \usage{
-  expand_statdoc(path, file = NULL, drop = NULL,
-    rm.other = TRUE)
+  expand_statdoc(path, file = NULL, to.icon = NULL,
+    readme = NULL, drop = NULL, rm.other = TRUE)
 }
 \arguments{
   \item{path}{Path to the index.html file.}
 
   \item{file}{The path/file name to output.  If NULL the
   original index is overwritten.}
+
+  \item{to.icon}{The extra functions found in the
+  parenthesis for who new icons should be added.}
+
+  \item{readme}{Path to the readme file.}
 
   \item{drop}{A character vector of functions in the
   parenthesis that should be excluded from the index file.}
@@ -28,7 +33,14 @@ path <- paste0(getwd(), "/qdap/index.html")
 file <- paste0(getwd(), "/qdap/index2.html")
 
 library(qdap)
-expand_statdoc(path, file, qcv(syn, mgsub, adjmat, wc))
-expand_statdoc(path, , qcv(syn, mgsub, adjmat, wc))
+expand_statdoc(path, file, drop = qcv(syn, mgsub, adjmat, wc))
+
+file2 <- paste0(getwd(), "/qdap/index3.html")
+extras <- qcv(right.just, coleman_liau, flesch_kincaid, fry, linsear_write, SMOG)
+expand_statdoc(path, file2, to.icon = extras, drop = qcv(syn, mgsub, adjmat, wc))
+
+rdme <- system.file("extdata/readme.R", package = "acc.roxygen2")
+expand_statdoc(path, to.icon = extras,
+    readme = rdme, drop = qcv(syn, mgsub, adjmat, wc))
 }
 

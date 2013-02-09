@@ -7,6 +7,9 @@
 #' @param path Path to the index.html file.
 #' @param file The path/file name to output.  If NULL the original index is 
 #' overwritten.
+#' @param to.icon The extra functions found in the parenthesis for who new icons 
+#' should be added.
+#' @param readme Path to the readme file.
 #' @param drop A character vector of functions in the parenthesis that should be 
 #' excluded from the index file.
 #' @export
@@ -18,14 +21,29 @@
 #' file <- paste0(getwd(), "/qdap/index2.html")
 #' 
 #' library(qdap)
-#' expand_statdoc(path, file, qcv(syn, mgsub, adjmat, wc))
-#' expand_statdoc(path, , qcv(syn, mgsub, adjmat, wc))
+#' expand_statdoc(path, file, drop = qcv(syn, mgsub, adjmat, wc))
+#' 
+#' file2 <- paste0(getwd(), "/qdap/index3.html")
+#' extras <- qcv(right.just, coleman_liau, flesch_kincaid, fry, linsear_write, SMOG)
+#' expand_statdoc(path, file2, to.icon = extras, drop = qcv(syn, mgsub, adjmat, wc))
+#' 
+#' rdme <- system.file("extdata/readme.R", package = "acc.roxygen2")
+#' expand_statdoc(path, to.icon = extras, 
+#'     readme = rdme, drop = qcv(syn, mgsub, adjmat, wc))
 #}
-expand_statdoc <- function(path, file = NULL, drop = NULL, rm.other = TRUE) {
-    x <- suppressWarnings(readLines(path))
-    pars <- which(grepl("a></code>(.+?)<br", x))
+expand_statdoc <- function(path, file = NULL, to.icon = NULL, readme = NULL,
+    drop = NULL, rm.other = TRUE) {
+    if (is.null(to.icon) & is.null(readme)) {
+        x <- suppressWarnings(readLines(path))
+    } else {       
+        x <- exbutton_statdoc(path, to.icon)
+        if (!is.null(readme)) {
+            x <- readme_statdoc(x, readme)
+        }
+    }
+    pars <- which(grepl("a></code>\\((.+?)\\)<br", x))
     partxt <- x[pars]
-    new <- gsub("a></code>(.+?)<br", "a></code><br", x)
+    new <- gsub("a></code>\\((.+?)\\)<br", "a></code><br", x)
     extras <- lapply(partxt,  function(x) {
         gsub(".*a></code>\\((.+?)\\)<br.*", "\\1", x)
     })

@@ -32,3 +32,5 @@ Collate:
     'search_repo.R'
     'ur.R'
     'expand_statdoc.R'
+    'exbutton_statdoc.R'
+    'readme_statdoc.R'
