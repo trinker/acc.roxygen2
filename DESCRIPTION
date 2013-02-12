@@ -34,3 +34,4 @@ Collate:
     'expand_statdoc.R'
     'exbutton_statdoc.R'
     'readme_statdoc.R'
+    'combo_statdoc.R'

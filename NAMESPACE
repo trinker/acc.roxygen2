@@ -1,5 +1,6 @@
 export(ann)
 export(argrep)
+export(combo_statdoc)
 export(dat4rox)
 export(doc_check)
 export(examples)

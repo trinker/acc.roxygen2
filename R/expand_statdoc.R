@@ -10,6 +10,8 @@
 #' @param to.icon The extra functions found in the parenthesis for who new icons 
 #' should be added.
 #' @param readme Path to the readme file.
+#' @param combine A list of vectors to combine together.  The functions will be 
+#' combined int he order of each vector.
 #' @param drop A character vector of functions in the parenthesis that should be 
 #' excluded from the index file.
 #' @export
@@ -27,12 +29,14 @@
 #' extras <- qcv(right.just, coleman_liau, flesch_kincaid, fry, linsear_write, SMOG)
 #' expand_statdoc(path, file2, to.icon = extras, drop = qcv(syn, mgsub, adjmat, wc))
 #' 
+#' file3 <- paste0(getwd(), "/qdap/index4.html")
 #' rdme <- system.file("extdata/readme.R", package = "acc.roxygen2")
-#' expand_statdoc(path, to.icon = extras, 
-#'     readme = rdme, drop = qcv(syn, mgsub, adjmat, wc))
+#' expand_statdoc(path, file3, to.icon = extras, 
+#'     readme = rdme, combine = qcv(character.table, char.table),  
+#'     drop = qcv(syn, mgsub, adjmat, wc))
 #}
 expand_statdoc <- function(path, file = NULL, to.icon = NULL, readme = NULL,
-    drop = NULL, rm.other = TRUE) {
+    combine = NULL, drop = NULL, rm.other = TRUE) {
     if (is.null(to.icon) & is.null(readme)) {
         x <- suppressWarnings(readLines(path))
     } else {       
@@ -78,5 +82,8 @@ expand_statdoc <- function(path, file = NULL, to.icon = NULL, readme = NULL,
         end <- ul[ul - begin > 0 ][1] + 1
         new <- new[c(1:(begin - 1), end:length(new))]
     }
+    if (!is.null(combine)) {
+        new <- combo_statdoc(new, combine = combine)
+    }    
     cat(paste(new, collapse="\n"), file = file)
 }

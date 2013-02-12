@@ -3,7 +3,8 @@
 \title{Expand staticdocs index.html File}
 \usage{
   expand_statdoc(path, file = NULL, to.icon = NULL,
-    readme = NULL, drop = NULL, rm.other = TRUE)
+    readme = NULL, combine = NULL, drop = NULL,
+    rm.other = TRUE)
 }
 \arguments{
   \item{path}{Path to the index.html file.}
@@ -15,6 +16,10 @@
   parenthesis for who new icons should be added.}
 
   \item{readme}{Path to the readme file.}
+
+  \item{combine}{A list of vectors to combine together.
+  The functions will be combined int he order of each
+  vector.}
 
   \item{drop}{A character vector of functions in the
   parenthesis that should be excluded from the index file.}
@@ -39,8 +44,10 @@ file2 <- paste0(getwd(), "/qdap/index3.html")
 extras <- qcv(right.just, coleman_liau, flesch_kincaid, fry, linsear_write, SMOG)
 expand_statdoc(path, file2, to.icon = extras, drop = qcv(syn, mgsub, adjmat, wc))
 
+file3 <- paste0(getwd(), "/qdap/index4.html")
 rdme <- system.file("extdata/readme.R", package = "acc.roxygen2")
-expand_statdoc(path, to.icon = extras,
-    readme = rdme, drop = qcv(syn, mgsub, adjmat, wc))
+expand_statdoc(path, file3, to.icon = extras,
+    readme = rdme, combine = qcv(character.table, char.table),
+    drop = qcv(syn, mgsub, adjmat, wc))
 }
 
