@@ -22,7 +22,7 @@ readme_statdoc <- function(path, readme, file = NULL) {
         x <- suppressWarnings(readLines(path))
     }
     y <- suppressWarnings(readLines(readme))
-    start <- which(grepl("<h1></h1>", x))
+    start <- which(grepl("<h1>.+?</h1>", x))
     end <- which(grepl("<h2>Help topics</h2>", x))
     x <- c(x[1:start], "", y, "", x[end:length(x)])
     if (!is.null(file)) {
