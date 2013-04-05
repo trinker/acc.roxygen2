@@ -35,15 +35,23 @@
 #'     readme = rdme, combine = qcv(character.table, char.table),  
 #'     drop = qcv(syn, mgsub, adjmat, wc))
 #}
-expand_statdoc <- function(path, file = NULL, to.icon = NULL, readme = NULL,
+expand_statdoc <-
+function(path, file = NULL, to.icon = NULL, readme = NULL,
     combine = NULL, drop = NULL, rm.other = TRUE) {
     if (is.null(to.icon) & is.null(readme)) {
         x <- suppressWarnings(readLines(path))
-    } else {       
-        x <- exbutton_statdoc(path, to.icon)
-        if (!is.null(readme)) {
-            x <- readme_statdoc(x, readme)
-        }
+    } else { 
+    	if (!is.null(to.icon)) {
+            x <- exbutton_statdoc(path, to.icon)
+            if (!is.null(readme)) {
+                x <- readme_statdoc(x, readme)
+            }
+    	} else {
+    	    if (!is.null(readme)) {
+    	    	x <- suppressWarnings(readLines(path))
+                x <- readme_statdoc(x, readme)
+            }	
+    	}
     }
     pars <- which(grepl("a></code>\\((.+?)\\)<br", x))
     partxt <- x[pars]
