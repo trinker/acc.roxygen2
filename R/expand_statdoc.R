@@ -38,7 +38,7 @@
 expand_statdoc <-
 function(path, file = NULL, to.icon = NULL, readme = NULL,
     combine = NULL, drop = NULL, rm.other = TRUE) {
-    if (is.null(to.icon) & is.null(readme)) {
+      if (is.null(to.icon) & is.null(readme)) {
         x <- suppressWarnings(readLines(path))
     } else { 
     	if (!is.null(to.icon)) {
