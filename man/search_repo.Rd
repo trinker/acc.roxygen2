@@ -2,8 +2,8 @@
 \alias{search_repo}
 \title{Search a Repo for Terms}
 \usage{
-  search_repo(..., repo = "qdap",
-    base.git = "C:/Users/trinker/GitHub/", terms = NULL,
+  search_repo(..., repo = getOption("primary_repo"),
+    base.git = getOption("base_git"), terms = NULL,
     split = "\\|", char.keep = NULL)
 }
 \arguments{

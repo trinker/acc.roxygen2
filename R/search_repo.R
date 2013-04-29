@@ -14,12 +14,13 @@
 #' that strip should keep.  The default is to strip everything except 
 #' apostrophes. \code{\link[qdap]{termco}} attempts to auto detect characters to 
 #' keep based on the elements in \code{match.list}. 
+#' @import qdap
 #' @export
-search_repo <- function(..., repo = "qdap", 
-    base.git = "C:/Users/trinker/GitHub/", terms = NULL, split = "\\|", 
+search_repo <- function(..., repo = getOption("primary_repo"), 
+    base.git = getOption("base_git"), terms = NULL, split = "\\|", 
     char.keep = NULL) {
     require(qdap)
-    path <- paste0(base.git, "/", repo, "/R/")
+    path <- file.path(base.git, repo, "R")
     if (!is.null(terms)) {
         x <- strsplit(terms, split = split)
     } else {
