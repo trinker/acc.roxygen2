@@ -5,20 +5,16 @@
 #' @param space
 #' @param symbol
 #' @export
-ann <-
-function(object = NULL, space = 1, symbol="#") {
-    y <- if (is.null(object)) {
-        as.list(readClipboard())
+ann <- 
+function(object = "clipboard", space = 1, symbol="##") {
+    if (length(object) == 1 && is.character(object) && object == "clipboard") {
+        y <- as.list(readClipboard())
     } else {
-        strsplit(as.vector(object), "[\n]")
+        y <- as.list(capture.output(object))
     }
     spacer <- function(x) paste(symbol, paste(rep(" ", space), 
         collapse = ""), x, sep="")
-    z <- if (is.null(object)) {
-        sapply(y, spacer)
-    } else {
-        lapply(y, spacer)
-    }
+    z <- sapply(y, spacer)
     zz <- as.matrix(as.data.frame(z))
     dimnames(zz) <- list(c(rep("", nrow(zz))), c(""))
     writeClipboard(noquote(zz), format = 1)

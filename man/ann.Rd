@@ -2,7 +2,7 @@
 \alias{ann}
 \title{R}
 \usage{
-  ann(object = NULL, space = 1, symbol = "#")
+  ann(object = "clipboard", space = 1, symbol = "##")
 }
 \arguments{
   \item{object}{}

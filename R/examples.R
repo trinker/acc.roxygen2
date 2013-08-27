@@ -33,6 +33,7 @@ function(file = "examples.txt", path = "C:/Users/trinker/GitHub/qdap/R/") {
         x
     })
     names(L1) <- sapply(L1, function(x) gsub(".R", "", x[1,1], fixed = TRUE))
+    
     invisible(lapply(seq_along(L1), function(i){
         examp <- paste(substring(L1[[i]][, 2], 4), collapse="\n")
         cat("#======================\n", file = file, append = (i != 1))
