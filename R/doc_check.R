@@ -8,9 +8,8 @@
 #' @export
 doc_check <- function(repo, out_path=paste0(dt, "spell_check.doc"),
 	base.git = getOption("base.git")) {
-    require(qdap)
-    in_path <- paste0(base.git, "/", repo, "/R/")
-    files <- paste0(in_path, "/", dir(in_path))
+    in_path <- file.path (base.git, , repo, "R")
+    files <- file.path(in_path, dir(in_path))
     m <- suppressWarnings(lapply(files, readLines))
     names(m) <- dir(in_path)
     x <- do.call(rbind, lapply(seq_along(m), function(i){

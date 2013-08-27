@@ -1,4 +1,4 @@
-#' Combine Finction Icons 
+#' Combine Function Icons 
 #'
 #' This function allows for specifically combining functions under a common line.
 #' 
@@ -9,6 +9,7 @@
 #' @export
 #' @examples
 #' \dontrun{
+#' library(qdap)
 #' (examp <- system.file("extdata/qdap", package = "acc.roxygen2"))
 #' file.copy(examp, to=getwd(), recursive = TRUE)
 #' path <- paste0(getwd(), "/qdap/index.html")
@@ -55,3 +56,4 @@ combo_statdoc <- function(path, combine, file = NULL) {
     }
     return(x)
 }
+

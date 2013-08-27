@@ -35,3 +35,7 @@ Collate:
     'exbutton_statdoc.R'
     'readme_statdoc.R'
     'combo_statdoc.R'
+    'OR.R'
+    'utils.R'
+    'roxfun.R'
+    'see.R'

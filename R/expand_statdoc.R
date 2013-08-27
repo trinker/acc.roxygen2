@@ -95,3 +95,4 @@ function(path, file = NULL, to.icon = NULL, readme = NULL,
     }    
     cat(paste(new, collapse="\n"), file = file)
 }
+

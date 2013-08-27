@@ -2,14 +2,16 @@
 #'
 #' Generates a file of examples to your working directory.
 #' 
-#' @param file A file name, however, not a path.
-#' @param path Path to repo.
+#' @param file A character string naming the file to print to.
+#' @param repo Repo name.
+#' @param base.git Base path to where repos are store (the repo is stored).
 #' @export
 examples <- 
-function(file = "examples.txt", path = "C:/Users/trinker/GitHub/qdap/R/") {
+function(file = file.path(getwd(), "examples.txt"), 
+    repo = getOption("primary_repo"), base.git = getOption("base_git")){
+    path <- file.path(base.git, repo, "R") 
     WD <- getwd()
     setwd(path)
-    file <- paste0(WD, "/", file)
     m <- suppressWarnings(sapply(dir(), readLines))
     x <- do.call(rbind, lapply(seq_along(m), function(i){
         data.frame(fun=rep(names(m)[i], length(m[[i]])), text=m[[i]],

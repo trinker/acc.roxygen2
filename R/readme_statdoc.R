@@ -30,3 +30,4 @@ readme_statdoc <- function(path, readme, file = NULL) {
     }
     return(x)
 }
+

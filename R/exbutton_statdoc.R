@@ -77,3 +77,4 @@ exbutton_statdoc <- function(path, extra, file = NULL) {
     }
     return(x)
 }
+
