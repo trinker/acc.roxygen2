@@ -9,6 +9,7 @@
 examples <- 
 function(file = file.path(getwd(), "examples.txt"), 
     repo = getOption("primary_repo"), base.git = getOption("base_git")){
+    file <- file
     path <- file.path(base.git, repo, "R") 
     WD <- getwd()
     setwd(path)

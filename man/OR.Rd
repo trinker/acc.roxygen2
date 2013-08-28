@@ -1,0 +1,17 @@
+\name{OR}
+\alias{OR}
+\title{Open a Repo}
+\usage{
+  OR(repo = getOption("primary_repo"),
+    base.git = getOption("base_git"))
+}
+\arguments{
+  \item{repo}{Repo name.}
+
+  \item{base.git}{Base path to where repos are store (the
+  repo is stored).}
+}
+\description{
+  Open a repo.
+}
+
