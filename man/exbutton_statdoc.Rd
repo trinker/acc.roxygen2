@@ -2,7 +2,7 @@
 \alias{exbutton_statdoc}
 \title{Add Extra staticdocs Icons}
 \usage{
-  exbutton_statdoc(path, extra, file = NULL)
+exbutton_statdoc(path, extra, file = NULL)
 }
 \arguments{
   \item{path}{Path to the index.html file.}
@@ -13,10 +13,10 @@
   \item{file}{The path/file name to output.}
 }
 \description{
-  staticdocs writes multiple files contained in an .Rd file
-  to one icon followed by a parenthesis with the other
-  functions.  This function adds extra icons for supplied
-  parenthesis functions.
+staticdocs writes multiple files contained in an .Rd file
+to one icon followed by a parenthesis with the other
+functions.  This function adds extra icons for supplied
+parenthesis functions.
 }
 \examples{
 \dontrun{

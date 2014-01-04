@@ -2,9 +2,9 @@
 \alias{ur}
 \title{R}
 \usage{
-  ur()
+ur()
 }
 \description{
-  R
+R
 }
 

@@ -2,9 +2,9 @@
 \alias{search_repo}
 \title{Search a Repo for Terms}
 \usage{
-  search_repo(..., repo = getOption("primary_repo"),
-    base.git = getOption("base_git"), terms = NULL,
-    split = "\\|", char.keep = NULL)
+search_repo(..., repo = getOption("primary_repo"),
+  base.git = getOption("base_git"), terms = NULL, split = "\\\\|",
+  char.keep = NULL)
 }
 \arguments{
   \item{\ldots}{Terms to search for in the .R files.  No
@@ -32,6 +32,6 @@
   \code{match.list}.}
 }
 \description{
-  Generates counts of terms found in the .R documentation.
+Generates counts of terms found in the .R documentation.
 }
 

@@ -2,13 +2,13 @@
 \alias{roxfun}
 \title{Title}
 \usage{
-  roxfun(fun)
+roxfun(fun)
 }
 \arguments{
   \item{fun}{}
 }
 \description{
-  Description
+Description
 }
 \examples{
 roxfun(lm)

@@ -2,7 +2,7 @@
 \alias{readme_statdoc}
 \title{Change read.me File}
 \usage{
-  readme_statdoc(path, readme, file = NULL)
+readme_statdoc(path, readme, file = NULL)
 }
 \arguments{
   \item{path}{Path to the index.html file.}
@@ -12,7 +12,7 @@
   \item{file}{The path/file name to output.}
 }
 \description{
-  Alter the read.me file with a preset.
+Alter the read.me file with a preset.
 }
 \examples{
 \dontrun{

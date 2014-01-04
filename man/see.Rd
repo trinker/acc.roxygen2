@@ -3,9 +3,9 @@
 \alias{seealso}
 \title{Function Links}
 \usage{
-  see(fun, character.only = FALSE)
+see(fun, character.only = FALSE)
 
-  seealso(..., ann = TRUE, sa = TRUE)
+seealso(..., ann = TRUE, sa = TRUE)
 }
 \arguments{
   \item{fun}{A function.}
@@ -22,10 +22,10 @@
   \code{@seealso } in the output.}
 }
 \description{
-  \code{see} - Generate function links for R documentation.
+\code{see} - Generate function links for R documentation.
 
-  \code{seealso} - Generate multiple function links for
-  roxygen2 documentation.
+\code{seealso} - Generate multiple function links for
+roxygen2 documentation.
 }
 \examples{
 see(lm)

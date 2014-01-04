@@ -2,8 +2,7 @@
 \alias{OR}
 \title{Open a Repo}
 \usage{
-  OR(repo = getOption("primary_repo"),
-    base.git = getOption("base_git"))
+OR(repo = getOption("primary_repo"), base.git = getOption("base_git"))
 }
 \arguments{
   \item{repo}{Repo name.}
@@ -12,6 +11,6 @@
   repo is stored).}
 }
 \description{
-  Open a repo.
+Open a repo.
 }
 

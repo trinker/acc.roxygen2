@@ -2,12 +2,12 @@
 \alias{argrep}
 \title{R}
 \usage{
-  argrep(pars = NULL)
+argrep(pars = NULL)
 }
 \arguments{
   \item{args}{}
 }
 \description{
-  R
+R
 }
 

@@ -2,7 +2,7 @@
 \alias{combo_statdoc}
 \title{Combine Function Icons}
 \usage{
-  combo_statdoc(path, combine, file = NULL)
+combo_statdoc(path, combine, file = NULL)
 }
 \arguments{
   \item{path}{Path to the index.html file.}
@@ -14,8 +14,8 @@
   \item{file}{The path/file name to output.}
 }
 \description{
-  This function allows for specifically combining functions
-  under a common line.
+This function allows for specifically combining functions
+under a common line.
 }
 \examples{
 \dontrun{

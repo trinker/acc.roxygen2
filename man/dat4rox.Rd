@@ -2,7 +2,7 @@
 \alias{dat4rox}
 \title{Roxygen Format Data Sets}
 \usage{
-  dat4rox(..., file = NULL, append = FALSE)
+dat4rox(..., file = NULL, append = FALSE)
 }
 \arguments{
   \item{\ldots}{Package datasets.}
@@ -18,9 +18,9 @@
   allows for appnding to the main package .R file.}
 }
 \description{
-  This function generates basic roxygen framework for data
-  sets that can be set to print to your package's main .R
-  file.
+This function generates basic roxygen framework for data
+sets that can be set to print to your package's main .R
+file.
 }
 \examples{
 \dontrun{

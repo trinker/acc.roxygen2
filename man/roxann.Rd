@@ -2,9 +2,9 @@
 \alias{roxann}
 \title{R}
 \usage{
-  roxann()
+roxann()
 }
 \description{
-  R
+R
 }
 

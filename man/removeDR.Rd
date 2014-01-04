@@ -2,9 +2,8 @@
 \alias{removeDR}
 \title{Remove the dontrun Pieces of Documentation}
 \usage{
-  removeDR(repo = getOption("primary_repo"),
-    base.git = getOption("base_git"),
-    out_path = file.path(repo, paste0(base.git, "2"), "R"))
+removeDR(repo = getOption("primary_repo"), base.git = getOption("base_git"),
+  out_path = file.path(repo, paste0(base.git, "2"), "R"))
 }
 \arguments{
   \item{repo}{Repo name.}
@@ -16,9 +15,9 @@
   files without \code{dontrun}s.}
 }
 \description{
-  Allows the creation of documentation with \code{dontrun}
-  for upload but removal for staticdocs to a second file
-  without fear of overwritting repo.
+Allows the creation of documentation with \code{dontrun}
+for upload but removal for staticdocs to a second file
+without fear of overwritting repo.
 }
 \examples{
 \dontrun{

@@ -2,7 +2,7 @@
 \alias{ann}
 \title{Annotate}
 \usage{
-  ann(object = "clipboard", space = 1, symbol = "##")
+ann(object = "clipboard", space = 1, symbol = "##")
 }
 \arguments{
   \item{object}{Object to annotate.  Defualt reads from the
@@ -15,7 +15,7 @@
   each line of the code for annotation.}
 }
 \description{
-  Annotate R Code
+Annotate R Code
 }
 \examples{
 ann(mtcars)

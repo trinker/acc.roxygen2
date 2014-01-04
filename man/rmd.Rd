@@ -2,9 +2,8 @@
 \alias{rmd}
 \title{Make .Rd files}
 \usage{
-  rmd(repo = getOption("primary_repo"),
-    base.git = getOption("base_git"), rox = TRUE,
-    open = TRUE)
+rmd(repo = getOption("primary_repo"), base.git = getOption("base_git"),
+  rox = TRUE, open = TRUE)
 }
 \arguments{
   \item{repo}{Repo name.}
@@ -19,7 +18,7 @@
   manual and opens it.}
 }
 \description{
-  Makes and optionally opens the help manual for a roxygen2
-  repo.
+Makes and optionally opens the help manual for a roxygen2
+repo.
 }
 

@@ -18,24 +18,3 @@ Description: A (eventual) collection of tools to make roxygen2 even easier to
     extended to Mac)
 License: GPL-2
 URL: https://github.com/trinker/acc.roxygen2
-Collate:
-    'ann.R'
-    'argrep.R'
-    'dat4rox.R'
-    'pars4rox.R'
-    'roxann.R'
-    'unind.R'
-    'examples.R'
-    'doc_check.R'
-    'removeDR.R'
-    'rmd.R'
-    'search_repo.R'
-    'ur.R'
-    'expand_statdoc.R'
-    'exbutton_statdoc.R'
-    'readme_statdoc.R'
-    'combo_statdoc.R'
-    'OR.R'
-    'utils.R'
-    'roxfun.R'
-    'see.R'

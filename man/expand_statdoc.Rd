@@ -2,9 +2,8 @@
 \alias{expand_statdoc}
 \title{Expand staticdocs index.html File}
 \usage{
-  expand_statdoc(path, file = NULL, to.icon = NULL,
-    readme = NULL, combine = NULL, drop = NULL,
-    rm.other = TRUE)
+expand_statdoc(path, file = NULL, to.icon = NULL, readme = NULL,
+  combine = NULL, drop = NULL, rm.other = TRUE)
 }
 \arguments{
   \item{path}{Path to the index.html file.}
@@ -25,10 +24,10 @@
   parenthesis that should be excluded from the index file.}
 }
 \description{
-  staticdocs writes multiple files contained in an .Rd file
-  to one icon followed by a parenthesis with the other
-  functions.  This function exapands the parenthesis to be
-  separate icons of their own.
+staticdocs writes multiple files contained in an .Rd file
+to one icon followed by a parenthesis with the other
+functions.  This function exapands the parenthesis to be
+separate icons of their own.
 }
 \examples{
 \dontrun{

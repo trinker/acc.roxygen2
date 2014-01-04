@@ -2,8 +2,8 @@
 \alias{doc_check}
 \title{Generate Text of Roxygen Documentation}
 \usage{
-  doc_check(repo, out_path = paste0(dt, "spell_check.doc"),
-    base.git = getOption("base.git"))
+doc_check(repo, out_path = paste0(dt, "spell_check.doc"),
+  base.git = getOption("base.git"))
 }
 \arguments{
   \item{repo}{Character string indicating repo/package
@@ -15,7 +15,7 @@
   stored.}
 }
 \description{
-  Generates text of roxygen documentation for quick spell
-  check.
+Generates text of roxygen documentation for quick spell
+check.
 }
 
