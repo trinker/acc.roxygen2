@@ -32,4 +32,5 @@ comb <- list(
 combo_statdoc(path, comb)
 combo_statdoc(path, comb, file)
 }
+}
 

@@ -49,4 +49,5 @@ expand_statdoc(path, file3, to.icon = extras,
     readme = rdme, combine = qcv(character.table, char.table),
     drop = qcv(syn, mgsub, adjmat, wc))
 }
+}
 

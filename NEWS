@@ -1,0 +1,50 @@
+NEWS 
+====
+
+Versioning
+----------
+
+Releases will be numbered with the following semantic versioning format:
+
+<major>.<minor>.<patch>
+
+And constructed with the following guidelines:
+
+* Breaking backward compatibility bumps the major (and resets the minor 
+  and patch)
+* New additions without breaking backward compatibility bumps the minor 
+  (and resets the patch)
+* Bug fixes and misc changes bumps the patch
+
+
+
+
+CHANGES IN acc.roxygen2 VERSION 0.1.1
+----------------------------------------------------------------
+
+BUG FIXES
+
+* 
+
+NEW FEATURES
+
+*  
+
+MINOR FEATURES
+
+* `funbody` added to grab a function name and body and generate a character 
+  vector for documentation creation.
+
+CHANGES
+
+* 
+
+
+
+
+CHANGES IN acc.roxygen2 VERSION 0.1.0
+----------------------------------------------------------------
+
+* The first installation of acc.roxygen2
+
+* Package designed to assist in package development tasks.

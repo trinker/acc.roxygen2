@@ -2,7 +2,7 @@
 #' 
 #' Description
 #' 
-#' @param fun
+#' @param fun A function.
 #' @export
 #' @examples
 #' roxfun(lm)

@@ -4,4 +4,4 @@
 .Rbuildignore
 acc.Rproj
 .gitignore
-acc.Rproj
+.Rprofile

@@ -21,7 +21,7 @@
 #' )
 #' combo_statdoc(path, comb)
 #' combo_statdoc(path, comb, file)
-#}
+#' }
 combo_statdoc <- function(path, combine, file = NULL) {
     if (!is.list(combine)) {
         combine <- list(combine)

@@ -29,4 +29,5 @@ extras <- qcv(right.just, coleman_liau, flesch_kincaid, fry, linsear_write, SMOG
 exbutton_statdoc(path, extras)
 exbutton_statdoc(path, extras, file)
 }
+}
 

@@ -34,7 +34,7 @@
 #' expand_statdoc(path, file3, to.icon = extras, 
 #'     readme = rdme, combine = qcv(character.table, char.table),  
 #'     drop = qcv(syn, mgsub, adjmat, wc))
-#}
+#' }
 expand_statdoc <-
 function(path, file = NULL, to.icon = NULL, readme = NULL,
     combine = NULL, drop = NULL, rm.other = TRUE) {

@@ -1,7 +1,7 @@
 Package: acc.roxygen2
 Type: Package
 Title: Fuctions to Extend roxygen2
-Version: 0.1.0
+Version: 0.1.1
 Date: 2012-05-09
 Author: Tyler Rinker
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
@@ -10,11 +10,12 @@ Depends:
     roxygen2,
     devtools
 Imports:
-    qdap
+    qdap,
+    reports
 LazyData: true
 ByteCompile: yes
-Description: A (eventual) collection of tools to make roxygen2 even easier to
-    use (note these functions are designed for windows users and may be
-    extended to Mac)
+Description: A (eventual) collection of tools to make roxygen2/devtools even
+    easier to use (note these functions are designed for Windows users and may
+    be extended to Mac/Linux)
 License: GPL-2
 URL: https://github.com/trinker/acc.roxygen2

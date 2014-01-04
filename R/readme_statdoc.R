@@ -14,7 +14,7 @@
 #' rdme <- system.file("extdata/readme.R", package = "acc.roxygen2")
 #' file <- paste0(getwd(), "/qdap/index3.html")
 #' readme_statdoc(path, rdme, file)
-#}
+#' }
 readme_statdoc <- function(path, readme, file = NULL) {
     if (length(path) > 1) {
         x <- path

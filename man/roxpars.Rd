@@ -3,14 +3,15 @@
 \alias{roxpars}
 \title{roxygen2 Parameters}
 \usage{
-roxpars(fun)
+roxpars(fun, copy2clip = TRUE)
 
-pars4rox(pars = NULL)
+pars4rox(pars = NULL, copy2clip = TRUE)
 }
 \arguments{
-  \item{fun}{}
+  \item{fun}{A function.}
 
-  \item{pars}{A string of comma separated parameters.}
+  \item{copy2clip}{logical. If \code{TRUE} attempts to copy
+  the output to the clipboard.}
 }
 \description{
 \code{roxpars} - Converts the arguments from a function to
