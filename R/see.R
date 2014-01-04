@@ -27,18 +27,23 @@ see <- function(fun, character.only = FALSE) {
 #' \code{seealso} - Generate multiple function links for roxygen2 documentation.
 #' 
 #' @param \ldots functions
-#' @param ann logical.  Should the roxygen2 annotation be used.
+#' @param ann logical.  Should the roxygen2 annotation (\code{#'}) be used.
+#' @param sa logical.  If \code{TRUE} includes \code{@@seealso } in the 
+#' output.
 #' @export
 #' @rdname see
-seealso <- function(..., ann = TRUE) {
+seealso <- function(..., ann = TRUE, sa = TRUE) {
     x <- substitute(...())
     funs <- unlist(lapply(x, function(y) as.character(y)))
     out <- unlist(suppressMessages(invisible(lapply(funs, see, 
         character.only = TRUE))))
+    if (sa) {
+        out[1] <- paste("@seealso", out[1])
+    }
     if(ann) {
         out <- paste("#'", out)
     }
-    out <- paste(out, collapse = "\n")
+    out <- paste(out, collapse = ",\n")
     write_clip(out)
     message(out)
     invisible(out)

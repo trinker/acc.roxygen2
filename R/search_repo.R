@@ -14,7 +14,7 @@
 #' that strip should keep.  The default is to strip everything except 
 #' apostrophes. \code{\link[qdap]{termco}} attempts to auto detect characters to 
 #' keep based on the elements in \code{match.list}. 
-#' @importFrom qdap scrubber termco left.just
+#' @importFrom qdap scrubber termco left_just
 #' @export
 search_repo <- function(..., repo = getOption("primary_repo"), 
     base.git = getOption("base_git"), terms = NULL, split = "\\|", 
@@ -38,5 +38,5 @@ search_repo <- function(..., repo = getOption("primary_repo"),
     x <- with(n, termco(text, fun, z, char.keep = char.keep))
     y <- x$raw[rowSums(x$raw[, -c(1:2), drop=FALSE]) !=0, ]
     setwd(WD)
-    left.just(replacer(y), 1)[, -2]
+    left_just(replacer(y), 1)[, -2]
 }
