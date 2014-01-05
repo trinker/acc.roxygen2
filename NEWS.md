@@ -19,13 +19,32 @@ And constructed with the following guidelines:
 
 
 
-<b>CHANGES</b> IN pacman VERSION 0.2.0
+<b>CHANGES</b> IN <a href="https://github.com/trinker/acc.roxygen2" target="_blank">acc.roxygen2</a> VERSION 0.1.1
 ----------------------------------------------------------------
+
+<b>BUG FIXES</b>
+
+* 
+
+<b>NEW FEATURES</b>
+
+*  
+
+<b>MINOR FEATURES</b>
+
+* `funbody` added to grab a function name and body and generate a character 
+  vector for documentation creation.
+
+* `pack_fun` writes documentation with basic roxygen2 set up.
+
+<b>CHANGES</b>
 
 * 
 
 
-<b>CHANGES</b> IN pacman VERSION 0.1.0
+
+
+<b>CHANGES</b> IN <a href="https://github.com/trinker/acc.roxygen2" target="_blank">acc.roxygen2</a> VERSION 0.1.0
 ----------------------------------------------------------------
 
 * The first installation of <a href="https://github.com/trinker/acc.roxygen2" target="_blank">acc.roxygen2</a>

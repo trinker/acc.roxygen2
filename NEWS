@@ -35,6 +35,8 @@ MINOR FEATURES
 * `funbody` added to grab a function name and body and generate a character 
   vector for documentation creation.
 
+* `pack_fun` writes documentation with basic roxygen2 set up.
+
 CHANGES
 
 * 

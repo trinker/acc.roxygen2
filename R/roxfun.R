@@ -1,12 +1,14 @@
-#' Title
+#' Generate roxygen2 Documentation
 #' 
-#' Description
+#' Generate the roxygen2 basic documentation.
 #' 
 #' @param fun A function.
+#' @param copy2clip logical. If \code{TRUE} attempts to copy the output to the 
+#' clipboard.
 #' @export
 #' @examples
 #' roxfun(lm)
-roxfun <- function(fun) {
+roxfun <- function(fun, copy2clip = TRUE) {
     fname <- as.character(substitute(fun))
 
     ## Get parameters
@@ -17,6 +19,9 @@ roxfun <- function(fun) {
     ending <- c("#' @return", "#' @references", "#' @keywords", "#' @export", 
         "#' @seealso", "#' @examples")
     out <- paste0(c(name.desc, pars, ending), collapse = "\n")
-    write_clip(out)
+	if (copy2clip) {
+        write_clip(out)
+	}
     message(out)
+	invisible(out)
 }

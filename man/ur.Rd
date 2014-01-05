@@ -1,10 +1,11 @@
 \name{ur}
 \alias{ur}
-\title{R}
+\title{Uroxann Code}
 \usage{
 ur()
 }
 \description{
-R
+Removes 3 spaces from the front of code (removes \code{#'
+}).
 }
 

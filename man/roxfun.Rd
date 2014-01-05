@@ -1,14 +1,17 @@
 \name{roxfun}
 \alias{roxfun}
-\title{Title}
+\title{Generate roxygen2 Documentation}
 \usage{
-roxfun(fun)
+roxfun(fun, copy2clip = TRUE)
 }
 \arguments{
-  \item{fun}{}
+  \item{fun}{A function.}
+
+  \item{copy2clip}{logical. If \code{TRUE} attempts to copy
+  the output to the clipboard.}
 }
 \description{
-Description
+Generate the roxygen2 basic documentation.
 }
 \examples{
 roxfun(lm)
