@@ -28,7 +28,9 @@ BUG FIXES
 
 NEW FEATURES
 
-*  
+*  `package_template` a function, like `package.skeleton` that generates a 
+  package template.  `package_template` is designed to be roxygen2 ready, with 
+  many tasks precompleted.
 
 MINOR FEATURES
 

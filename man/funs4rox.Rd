@@ -2,24 +2,17 @@
 \alias{funs4rox}
 \title{roxygen2 Format Functions}
 \usage{
-funs4rox(..., destination = "", copy2clip = TRUE, append = FALSE)
+funs4rox(..., rdir = NULL, funs = NULL)
 }
 \arguments{
-  \item{\ldots}{A function.}
+  \item{\ldots}{Functions (expressions) to create .R files
+  for.}
 
-  \item{file}{A connection, or a character string naming
-  the file to print to. If \code{""} (the default),
-  \code{cat} prints to the standard output connection, the
-  console unless redirected by sink.}
+  \item{rdir}{The location of the R directory to create the
+  .R files.  If \code{NULL} prints to the console.}
 
-  \item{append}{append logical. Only used if the argument
-  file is the name of file (and not a connection or
-  "|cmd"). If TRUE output will be appended to file;
-  otherwise, it will overwrite the contents of file. This
-  allows for appnding to the main package .R file.}
-
-  \item{copy2clip}{logical. If \code{TRUE} attempts to copy
-  the output to the clipboard.}
+  \item{funs}{Alternate character string (in lieu of
+  \ldots).}
 }
 \value{
 Returns a basic .R files for a function with roxygen2
@@ -31,6 +24,18 @@ functions that can be set to print to your package's R
 directory.
 }
 \examples{
-pack_fun(pack_fun, lm)
+## Create practice folders
+library(reports)
+folder("pack1/R"); folder("pack2/R")
+
+## Expression functions
+funs4rox(mean, pack_fun, lm, rdir="pack1/R")
+
+## Character functions
+funs <- c('mean', 'pack_fun', "lm")
+funs4rox(funs = funs, rdir="pack2/R")
+
+## Clean up
+lapply(c("pack1", "pack2"), delete)
 }
 

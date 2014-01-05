@@ -28,7 +28,9 @@ And constructed with the following guidelines:
 
 <b>NEW FEATURES</b>
 
-*  
+*  `package_template` a function, like `package.skeleton` that generates a 
+  package template.  `package_template` is designed to be roxygen2 ready, with 
+  many tasks precompleted.
 
 <b>MINOR FEATURES</b>
 

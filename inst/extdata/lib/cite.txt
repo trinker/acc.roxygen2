@@ -1,0 +1,1 @@
+cite <- "\ncitHeader(\"To cite REPLACE_ME in publications, please use:\")\n\n\ncitEntry(entry = \"manual\",\n    title = \"\",\n    author = \"First M. Last\",\n    organization = \"\",\n    address = \"\",\n    note = \"version 1.0.0\",\n    year = \"\",\n    url = \"\", \n    textVersion  = paste(\"Last, M. F. (YEAR).\",\n        \"TITLE.\",\n        \"version 1.0.0.\" \")\n)"

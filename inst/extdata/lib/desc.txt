@@ -1,0 +1,1 @@
+URL: http\nBugReports: http\nLazyData: TRUE\nVignetteBuilder: knitr\nDepends:\nImports:\nSuggests:\n
