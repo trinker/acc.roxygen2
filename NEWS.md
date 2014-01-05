@@ -35,7 +35,8 @@ And constructed with the following guidelines:
 * `funbody` added to grab a function name and body and generate a character 
   vector for documentation creation.
 
-* `pack_fun` writes documentation with basic roxygen2 set up.
+* `pack_fun` a function to prepare a function as a .R file and write 
+  documentation with basic roxygen2 set up.
 
 <b>CHANGES</b>
 

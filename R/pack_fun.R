@@ -3,7 +3,9 @@
 #' Generate a basic roxygen2 .R file
 #' 
 #' @param \ldots A function.
-#' @param file A connection, or a character string naming the file to print to. If \code{""} (the default), \code{cat} prints to the standard output connection, the console unless redirected by sink.
+#' @param file A connection, or a character string naming the file to print to. 
+#' If \code{""} (the default), \code{cat} prints to the standard output 
+#' connection, the console unless redirected by sink.
 #' @param copy2clip logical. If \code{TRUE} attempts to copy the output to the
 #' @return Returns a basic .R file for a function with roxygen2 documentation.
 #' @export
