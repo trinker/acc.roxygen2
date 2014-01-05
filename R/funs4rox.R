@@ -1,6 +1,7 @@
-#' Generate a Basic roxygen2 .R File
-#' 
-#' Generate a basic roxygen2 .R file
+#' roxygen2 Format Functions
+#'
+#' This function generates basic roxygen framework for functions that 
+#' can be set to print to your package's R directory.
 #' 
 #' @param \ldots A function.
 #' @param file A connection, or a character string naming the file to print to. 
@@ -12,17 +13,14 @@
 #' This allows for appnding to the main package .R file.
 #' @param copy2clip logical. If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
-#' @return Returns a basic .R file for a function with roxygen2 documentation.
+#' @return Returns a basic .R files for a function with roxygen2 documentation.
 #' @export
 #' @examples
-#' pack_fun(pack_fun)
-pack_fun <- function(..., file = "", append = FALSE, copy2clip = TRUE) {
-    x1 <- suppressMessages(roxfun(...))
-    x2 <- suppressMessages(funbody(...))
-    out <- paste(c(x1, "\n", x2, "\n"), collapse="")
-    if (copy2clip) {
-        write_clip(out)
-    }    
-    cat(out, file = file, append = append)
-    invisible(out)
+#' pack_fun(pack_fun, lm)
+funs4rox <- function(..., destination = "", copy2clip = TRUE, append = FALSE) {
+
+## feed to pack_fun
+## see dat4rox for structure
+## destination will print to that folder, "" will print to console
+
 }

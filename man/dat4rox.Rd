@@ -1,6 +1,6 @@
 \name{dat4rox}
 \alias{dat4rox}
-\title{Roxygen Format Data Sets}
+\title{roxygen2 Format Data Sets}
 \usage{
 dat4rox(..., file = NULL, append = FALSE)
 }

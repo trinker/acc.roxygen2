@@ -14,7 +14,7 @@ function(repo = getOption("primary_repo"), base.git = getOption("base_git"),
     rox = TRUE, open = TRUE){
     pack <- as.character(substitute(repo))
     unlink(paste0(pack, ".pdf"), recursive = TRUE, force = TRUE)
-    x <- paste0(base.git, pack)
+    x <- file.path(base.git, pack)
     if (rox) {
         document(x)
     }

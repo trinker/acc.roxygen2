@@ -1,8 +1,8 @@
-\name{pack_fun}
-\alias{pack_fun}
-\title{Generate a Basic roxygen2 .R File}
+\name{funs4rox}
+\alias{funs4rox}
+\title{roxygen2 Format Functions}
 \usage{
-pack_fun(..., file = "", append = FALSE, copy2clip = TRUE)
+funs4rox(..., destination = "", copy2clip = TRUE, append = FALSE)
 }
 \arguments{
   \item{\ldots}{A function.}
@@ -22,13 +22,15 @@ pack_fun(..., file = "", append = FALSE, copy2clip = TRUE)
   the output to the clipboard.}
 }
 \value{
-Returns a basic .R file for a function with roxygen2
+Returns a basic .R files for a function with roxygen2
 documentation.
 }
 \description{
-Generate a basic roxygen2 .R file
+This function generates basic roxygen framework for
+functions that can be set to print to your package's R
+directory.
 }
 \examples{
-pack_fun(pack_fun)
+pack_fun(pack_fun, lm)
 }
 

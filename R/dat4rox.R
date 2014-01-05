@@ -1,4 +1,4 @@
-#' Roxygen Format Data Sets
+#' roxygen2 Format Data Sets
 #'
 #' This function generates basic roxygen framework for data sets that 
 #' can be set to print to your package's main .R file.
