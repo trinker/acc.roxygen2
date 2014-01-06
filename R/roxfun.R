@@ -3,16 +3,17 @@
 #' Generate the roxygen2 basic documentation.
 #' 
 #' @param fun A function.
+#' @param environment The environment to evaluate the function in.
 #' @param copy2clip logical. If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
 #' @export
 #' @examples
 #' roxfun(lm)
-roxfun <- function(fun, copy2clip = TRUE) {
+roxfun <- function(fun, environment = .GlobalEnv, copy2clip = TRUE) {
     fname <- as.character(substitute(fun))
 
     ## Get parameters
-    pars <- suppressMessages(roxpars(fun))
+    pars <- suppressMessages(roxpars(fun, environment = environment))
     
     ## Generate name and description
     name.desc <- c("#' Title", "#' ", "#' Description", "#' ")

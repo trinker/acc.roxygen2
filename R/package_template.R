@@ -1,25 +1,74 @@
+#' roxygen2 Oriented Package Skeleton
+#' 
+#' Produce a package skeleton with basic roxygen2 markup.
+#' 
+#' @param \ldots Functions and data sets to be included in the project.  A 
+#' character of functions located in the \code{environment} argument can be 
+#' included with the \code{list} argument instead.
+#' @param name Character string: the package name and directory name for your 
+#' package.
+#' @param environment An environment where objects are looked for. 
+#' @param path Path to put the package directory in.  Defaults to the working 
+#' directory.
+#' @param list character vector naming the R objects to put in the package. 
+#' @param open logical. If \code{TRUE} the project will be opened in RStudio. 
+#' @param rproj logical. If \code{TRUE} a .rproj file for RStudio is generated. 
+#' @return Generates a roxygen2 oriented package skeleton template.
+#' @references Read the 
+#' \href{http://cran.r-project.org/doc/manuals/R-exts.html}{'Writing R Extensions'} 
+#' manual for more details.
+#' @export
 #' @importFrom qdap Trim
 #' @importFrom reports folder delete
-
+#' @seealso \code{\link[utils]{package.skeleton}}
+#' @examples
 #' \dontrun{
+#' ## Example 1 (global env.)
 #' package_template(mean, mtcars, CO2, lm)
+#' 
+#' ## Example 2 (user env.)
+#' guy <- new.env(FALSE)
+#' guy$stuff <- mean
+#' guy$lib <- library
+#' guy$stole_this_data <- mtcars
+#' ls(guy)
+#' 
+#' package_template(stuff, lib, stole_this_data, environment = guy)
 #' }
 package_template <- function(..., name = "anRpackage",  
-    environment = .GlobalEnv, path = ".", force = FALSE, 
-    code_files = character(), list = NULL, open = TRUE, 
-    rproj = open) {
+    environment = .GlobalEnv, path = ".", list = NULL, open = TRUE, 
+	rproj = open) {
 
-    if (is.null(list)) {
-        x <- substitute(...())
-        list <- Trim(unlist(lapply(x, function(y) as.character(y))))
+	## interactive deletion of old directory
+	if(file.exists(file.path(path, name))) {
+        message(paste0("\"", file.path(path, name), 
+            "\" already exists:\nDo you want to overwrite?\n"))
+        ans <- menu(c("Yes", "No")) 
+        if (ans == "2") {
+            stop("package_template aborted")
+        } else {
+            delete(file.path(path, name))
+        }
+    }
+
+    ## get objects from an environment via list and/or ... or 
+    ## all the objectes in environment
+    x <- substitute(...())
+    if (!is.null(x) && length(x) == 1) {
+        x <- as.character(x)
+        list <- c(list, x)
+    } else {
+        list <- c(list, Trim(unlist(lapply(x, function(y) as.character(y)))))
+    }
+    if (identical(list, character(0))) {
+        list <- ls(envir = environment, all.names = TRUE)
     }
 
     pfuns <- sapply(list, function(x) is.function(get(x, envir = environment)))
 
     ## Use package skeleton to do the initial work
     suppressMessages(package.skeleton(name = name, list = list, 
-        environment = environment, path = path, force = force, 
-        code_files = code_files))
+        environment = environment, path = path))
 
     ## Enhance DESCRIPTION
     descloc <- file.path(path, name, "DESCRIPTION")
@@ -49,8 +98,9 @@ package_template <- function(..., name = "anRpackage",
         c("R", "man", "inst"))))
 
     ## Create .R files
-    funs4rox(rdir = dirs[[1]], funs = names(pfuns)[pfuns])
-
+    funs4rox(rdir = dirs[[1]], funs = names(pfuns)[pfuns], 
+    	environment = environment)
+	
     ## Create package .R file (data entries)
     dat4rox2(names(pfuns)[!pfuns], environment = environment,
         file = file.path(path, name, "R", paste0(name, "-package.R")))
@@ -197,4 +247,3 @@ open_project <- function(Rproj.loc) {
     message("Preparing to open project!")
     try(system(action, wait = FALSE, ignore.stderr = TRUE))
 }
-

@@ -2,7 +2,7 @@
 \alias{funs4rox}
 \title{roxygen2 Format Functions}
 \usage{
-funs4rox(..., rdir = NULL, funs = NULL)
+funs4rox(..., rdir = NULL, funs = NULL, environment = .GlobalEnv)
 }
 \arguments{
   \item{\ldots}{Functions (expressions) to create .R files
@@ -13,6 +13,9 @@ funs4rox(..., rdir = NULL, funs = NULL)
 
   \item{funs}{Alternate character string (in lieu of
   \ldots).}
+
+  \item{environment}{The environment to evaluate the
+  function in.}
 }
 \value{
 Returns a basic .R files for a function with roxygen2

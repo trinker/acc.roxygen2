@@ -4,6 +4,7 @@
 #' parameters.
 #' 
 #' @param fun A function.
+#' @param environment The environment to evaluate the function in.
 #' @param copy2clip logical. If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
 #' @export
@@ -11,10 +12,15 @@
 #' @importFrom qdap genX
 #' @examples
 #' roxpars(mean)
-roxpars <- 
-function(fun, copy2clip = TRUE) {
-    ## Get parameters
-    text.var <- paste(head(capture.output(args(fun)), -1), collapse = " ")
+roxpars <- function (fun, environment = .GlobalEnv, copy2clip = TRUE) {
+
+    char <- try(is.character(fun), silent = TRUE)
+    if (class(char) != "try-error" && char) {
+        fun <- as.name(fun)
+    }
+
+    text.var <- paste(head(capture.output(eval(substitute(args(fun)), 
+    	environment)), -1), collapse = " ")
     text.var <- Trim(gsub("function (", "", text.var, fixed = TRUE))
     text.var <- substring(text.var, 1, nchar(text.var) - 1)
     pars4rox(text.var, copy2clip = copy2clip)

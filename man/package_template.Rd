@@ -1,0 +1,61 @@
+\name{package_template}
+\alias{package_template}
+\title{roxygen2 Oriented Package Skeleton}
+\usage{
+package_template(..., name = "anRpackage", environment = .GlobalEnv,
+  path = ".", list = NULL, open = TRUE, rproj = open)
+}
+\arguments{
+  \item{\ldots}{Functions and data sets to be included in
+  the project.  A character of functions located in the
+  \code{environment} argument can be included with the
+  \code{list} argument instead.}
+
+  \item{name}{Character string: the package name and
+  directory name for your package.}
+
+  \item{environment}{An environment where objects are
+  looked for.}
+
+  \item{path}{Path to put the package directory in.
+  Defaults to the working directory.}
+
+  \item{list}{character vector naming the R objects to put
+  in the package.}
+
+  \item{open}{logical. If \code{TRUE} the project will be
+  opened in RStudio.}
+
+  \item{rproj}{logical. If \code{TRUE} a .rproj file for
+  RStudio is generated.}
+}
+\value{
+Generates a roxygen2 oriented package skeleton template.
+}
+\description{
+Produce a package skeleton with basic roxygen2 markup.
+}
+\examples{
+\dontrun{
+## Example 1 (global env.)
+package_template(mean, mtcars, CO2, lm)
+
+## Example 2 (user env.)
+guy <- new.env(FALSE)
+guy$stuff <- mean
+guy$lib <- library
+guy$stole_this_data <- mtcars
+ls(guy)
+
+package_template(stuff, lib, stole_this_data, environment = guy)
+}
+}
+\references{
+Read the
+\href{http://cran.r-project.org/doc/manuals/R-exts.html}{'Writing
+R Extensions'} manual for more details.
+}
+\seealso{
+\code{\link[utils]{package.skeleton}}
+}
+

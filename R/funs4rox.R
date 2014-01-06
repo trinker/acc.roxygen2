@@ -7,6 +7,7 @@
 #' @param rdir The location of the R directory to create the .R files.  If 
 #' \code{NULL} prints to the console.
 #' @param funs Alternate character string (in lieu of \ldots).
+#' @param environment The environment to evaluate the function in.
 #' @return Returns a basic .R files for a function with roxygen2 documentation.
 #' @export
 #' @examples
@@ -23,7 +24,7 @@
 #' 
 #' ## Clean up
 #' lapply(c("pack1", "pack2"), delete)
-funs4rox <- function(..., rdir = NULL, funs = NULL) {
+funs4rox <- function(..., rdir = NULL, funs = NULL, environment = .GlobalEnv) {
 
     if (is.null(funs)) {
         funs <- as.character(match.call(expand.dots = FALSE)[[2]])
@@ -31,13 +32,15 @@ funs4rox <- function(..., rdir = NULL, funs = NULL) {
 
     invisible(lapply(funs, function(x) {
         file <- ifelse(is.null(rdir), "", file.path(rdir, paste0(x, ".R")))
-        cat(paste(c(roxfun2(x), funbody2(x), "\n"), collapse = "\n"), file = file)
+        cat(paste(c(roxfun2(x, environment = environment), 
+        	funbody2(x, envir = environment), "\n"), 
+        	collapse = "\n"), file = file)
     }))
 
 }
 
-roxfun2 <- function (fun) {
-    pars <- suppressMessages(roxpars(fun))
+roxfun2 <- function (fun, environment = .GlobalEnv) {
+    pars <- suppressMessages(roxpars(fun, environment = environment))
     name.desc <- c("#' Title", "#' ", "#' Description", "#' ")
     ending <- c("#' @return", "#' @references", "#' @keywords", 
         "#' @export", "#' @seealso", "#' @examples")
@@ -45,12 +48,11 @@ roxfun2 <- function (fun) {
 }
 
 funbody2 <- function (fun, pos = 1, envir = as.environment(pos)) {
-    x <- capture.output(get(fun))
+    x <- capture.output(get(fun, envir = envir))
     x[1] <- paste(as.character(substitute(fun)), "<-", x[1])
     x <- x[!grepl("<bytecode:|<environment:", x)]
     loneobrack <- grepl("^\\s*\\{\\s*$", x)
-    x[which(loneobrack) - 1] <- paste0(x[which(loneobrack) - 
-        1], x[loneobrack])
+    x[which(loneobrack) - 1] <- paste0(x[which(loneobrack) - 1], x[loneobrack])
     x <- x[!loneobrack]
     paste0(x, collapse = "\n")
 }
