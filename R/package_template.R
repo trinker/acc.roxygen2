@@ -65,6 +65,7 @@ package_template <- function(..., name = "anRpackage",
     }
 
     pfuns <- sapply(list, function(x) is.function(get(x, envir = environment)))
+    pmeths <- is.method(list, character.only = TRUE)
 
     ## Use package skeleton to do the initial work
     suppressMessages(package.skeleton(name = name, list = list, 
@@ -97,13 +98,23 @@ package_template <- function(..., name = "anRpackage",
     dirs <- invisible(folder(folder.name = file.path(path, name, 
         c("R", "man", "inst"))))
 
-    ## Create .R files
-    funs4rox(rdir = dirs[[1]], funs = names(pfuns)[pfuns], 
-    	environment = environment)
-	
+    ## Create .R files (functions)
+    if (sum(pfuns & !pmeths) > 0) {
+        funs4rox(rdir = dirs[[1]], funs = names(pfuns)[pfuns & !pmeths], 
+    	      environment = environment)
+    }
+
+    ## Create .R files (methods)
+    if (sum(pmeths) > 0) {
+        meths4rox(rdir = dirs[[1]], funs = names(pfuns)[pmeths], 
+    	      environment = environment)
+    }
+		
     ## Create package .R file (data entries)
-    dat4rox2(names(pfuns)[!pfuns], environment = environment,
-        file = file.path(path, name, "R", paste0(name, "-package.R")))
+    if (sum(!pfuns) > 0) {
+        dat4rox2(names(pfuns)[!pfuns], environment = environment,
+            file = file.path(path, name, "R", paste0(name, "-package.R")))
+    }
 
     ## Create NEWS file
     news <- readLines(system.file("extdata/lib/news.txt", 

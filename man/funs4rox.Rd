@@ -1,8 +1,11 @@
 \name{funs4rox}
 \alias{funs4rox}
+\alias{meths4rox}
 \title{roxygen2 Format Functions}
 \usage{
 funs4rox(..., rdir = NULL, funs = NULL, environment = .GlobalEnv)
+
+meths4rox(..., rdir = NULL, funs = NULL, environment = .GlobalEnv)
 }
 \arguments{
   \item{\ldots}{Functions (expressions) to create .R files
@@ -22,9 +25,13 @@ Returns a basic .R files for a function with roxygen2
 documentation.
 }
 \description{
-This function generates basic roxygen framework for
-functions that can be set to print to your package's R
-directory.
+\code{funs4rox} - This function generates basic roxygen
+framework for functions that can be set to print to your
+package's R directory.
+
+\code{meths4rox} - This function generates basic roxygen
+framework for methods functions that can be set to print to
+your package's R directory.
 }
 \examples{
 ## Create practice folders

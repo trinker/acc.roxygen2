@@ -35,6 +35,8 @@ roxfun <- function(fun, environment = .GlobalEnv, copy2clip = TRUE) {
 #' functions print, plot and summary.
 #' 
 #' @rdname roxfun
+#' @importFrom reports CA
+#' @importFrom qdap beg2char
 #' @export
 roxmeth <- function(fun, environment = .GlobalEnv, copy2clip = TRUE) {
     fun <- as.character(substitute(fun))
