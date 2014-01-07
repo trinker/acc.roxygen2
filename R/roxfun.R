@@ -10,7 +10,7 @@
 #' @examples
 #' roxfun(lm)
 roxfun <- function(fun, environment = .GlobalEnv, copy2clip = TRUE) {
-    fname <- as.character(substitute(fun))
+    fun <- as.character(substitute(fun))
 
     ## Get parameters
     pars <- suppressMessages(roxpars(fun, environment = environment))
@@ -20,9 +20,10 @@ roxfun <- function(fun, environment = .GlobalEnv, copy2clip = TRUE) {
     ending <- c("#' @return", "#' @references", "#' @keywords", "#' @export", 
         "#' @seealso", "#' @examples")
     out <- paste0(c(name.desc, pars, ending), collapse = "\n")
-	if (copy2clip) {
-        write_clip(out)
-	}
+        if (copy2clip) {
+            write_clip(out)
+        }
     message(out)
-	invisible(out)
+    invisible(out)
 }
+
