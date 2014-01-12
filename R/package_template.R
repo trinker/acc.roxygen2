@@ -146,7 +146,7 @@ package_template <- function(..., name = "anRpackage",
 
     ## Open file
     if (open) {
-        open_project(file.path(path, name, paste0(name, ".Rproj")))
+        open_project2(file.path(path, name, paste0(name, ".Rproj")))
     }
     return(o)
 
@@ -264,8 +264,8 @@ wheresRstudio <- function() {
     temp[short.path] 
 }
 
-open_project <- function(Rproj.loc) {
-    action <- paste(wheresRstudio()[1], Rproj.loc)
+open_project2 <- function(Rproj.loc) {
+    action <- paste(wheresRstudio(), Rproj.loc)
     message("Preparing to open project!")
-    try(system(action, wait = FALSE, ignore.stderr = TRUE))
+    try(system(action[1], wait = FALSE, ignore.stderr = TRUE))
 }
