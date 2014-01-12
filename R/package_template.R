@@ -98,8 +98,8 @@ package_template <- function(..., name = "anRpackage",
     if (rproj) {
         invisible(file.copy(system.file("extdata/lib/TEMP.txt", 
             package = "acc.roxygen2"), file.path(path, name)))
-        invisible(file.rename(file.path(name, "TEMP.txt"), 
-            file.path(name, paste0(name, ".Rproj"))))
+        invisible(file.rename(file.path(path, name, "TEMP.txt"), 
+            file.path(name, paste0(path, name, ".Rproj"))))
     }
 
     ## Enhance directories
