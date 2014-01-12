@@ -265,7 +265,7 @@ wheresRstudio <- function() {
 }
 
 open_project <- function(Rproj.loc) {
-    action <- paste(wheresRstudio(), Rproj.loc)
+    action <- paste(wheresRstudio()[1], Rproj.loc)
     message("Preparing to open project!")
     try(system(action, wait = FALSE, ignore.stderr = TRUE))
 }
