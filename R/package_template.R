@@ -39,6 +39,17 @@ package_template <- function(..., name = "anRpackage",
     environment = .GlobalEnv, path = ".", list = NULL, open = TRUE, 
 	rproj = open) {
 
+	## check against CRAN
+	avpacks <- available.packages()[, 1]
+	if(name %in% avpacks) {
+        message(paste0("\"", name, 
+            "\" already exists as a CRAN package:\nDo you want to continue?\n"))
+        ans <- menu(c("Yes", "No")) 
+        if (ans == "2") {
+            stop("package_template aborted")
+        }
+    }
+	
 	## interactive deletion of old directory
 	if(file.exists(file.path(path, name))) {
         message(paste0("\"", file.path(path, name), 
