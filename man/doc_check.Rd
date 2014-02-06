@@ -2,7 +2,7 @@
 \alias{doc_check}
 \title{Generate Text of Roxygen Documentation}
 \usage{
-doc_check(repo, out_path = paste0(dt, "spell_check.doc"),
+doc_check(repo, out_path = "spell_check.doc",
   base.git = getOption("base.git"))
 }
 \arguments{

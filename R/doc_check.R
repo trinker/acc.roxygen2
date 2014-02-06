@@ -6,9 +6,9 @@
 #' @param out_path The desired file out path.
 #' @param base.git Path the location of where git repos are stored.
 #' @export
-doc_check <- function(repo, out_path=paste0(dt, "spell_check.doc"),
+doc_check <- function(repo, out_path="spell_check.doc",
 	base.git = getOption("base.git")) {
-    in_path <- file.path (base.git, , repo, "R")
+    in_path <- file.path (base.git, repo, "R")
     files <- file.path(in_path, dir(in_path))
     m <- suppressWarnings(lapply(files, readLines))
     names(m) <- dir(in_path)
