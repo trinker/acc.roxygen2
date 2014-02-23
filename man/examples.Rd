@@ -2,8 +2,8 @@
 \alias{examples}
 \title{Generate File of Package Examples}
 \usage{
-examples(file = file.path(getwd(), "examples.txt"),
-  repo = getOption("primary_repo"), base.git = getOption("base_git"))
+examples(repo = getOption("primary_repo"), file = "examples.txt",
+  base.git = getOption("base_git"))
 }
 \arguments{
   \item{file}{A character string naming the file to print

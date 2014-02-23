@@ -21,6 +21,7 @@
 #' exbutton_statdoc(path, extras, file)
 #' }
 exbutton_statdoc <- function(path, extra, file = NULL) {
+    
     x <- suppressWarnings(readLines(path))
     pars <- which(grepl("a></code>(.+?)<br", x))
     partxt <- x[pars]
@@ -31,7 +32,10 @@ exbutton_statdoc <- function(path, extra, file = NULL) {
         qcv(terms = x, split=",")
     })
     lens <- sapply(s.extras, length)
-    locs <- sapply(extra, function(x) which(unlist(s.extras) %in% x))
+    locs <- sapply(extra, function(x) {
+        out <- which(unlist(s.extras) %in% x)
+        if (length(out) > 1) stop("the following if found twice in the index\n", x)
+    })
     mlocs <- rep(1:length(partxt), lens)
     nlocs <- mlocs[locs]
     names(nlocs) <- names(locs)
@@ -77,4 +81,3 @@ exbutton_statdoc <- function(path, extra, file = NULL) {
     }
     return(x)
 }
-
