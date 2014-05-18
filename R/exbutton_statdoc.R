@@ -21,7 +21,7 @@
 #' exbutton_statdoc(path, extras, file)
 #' }
 exbutton_statdoc <- function(path, extra, file = NULL) {
-    
+
     x <- suppressWarnings(readLines(path))
     pars <- which(grepl("a></code>(.+?)<br", x))
     partxt <- x[pars]
@@ -35,7 +35,11 @@ exbutton_statdoc <- function(path, extra, file = NULL) {
     locs <- sapply(extra, function(x) {
         out <- which(unlist(s.extras) %in% x)
         if (length(out) > 1) stop("the following if found twice in the index\n", x)
+        if (identical(out, integer(0))) stop("the following is not found in the index\n", x)
+        integer(0)
+        out
     })
+    sapply(locs, length)
     mlocs <- rep(1:length(partxt), lens)
     nlocs <- mlocs[locs]
     names(nlocs) <- names(locs)

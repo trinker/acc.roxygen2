@@ -20,17 +20,20 @@
 #' }
 removeDR <- function(repo = getOption("primary_repo"), 
     base.git = getOption("base_git"),
-    out_path = file.path(repo, paste0(base.git, "2"), "R")) {
+    out_path  = file.path(base.git, paste0(repo, "2"), "R")) {
+
     in_path <- file.path(base.git, repo, "R")
     delete(file.path(out_path, dir(out_path)))
     files <- file.path(in_path, dir(in_path))
-    ofiles <- file.path(out_path, dir(out_path))
+    ofiles <- file.path(out_path, dir(in_path))
+
     rac <- function(x) {
         lines <- readLines(x)
         starts <- grep("@examples", lines) + 1
         if (identical(starts, numeric(0))) {
             return(lines)
         }
+
         nonrox <- grep("#'", lines, invert = TRUE) 
         ends <- sapply(seq_along(starts), function(i) {
             nonrox[starts[i] < nonrox][1]

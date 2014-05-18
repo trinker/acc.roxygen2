@@ -7,8 +7,10 @@
 #' @param base.git Base path to where repos are store (the repo is stored).
 #' @export
 examples <- 
-function(repo = getOption("primary_repo"), file = "examples.txt", 
+function(repo = getOption("primary_repo"), 
+	file = file.path(getwd(), "examples.txt"), 
     base.git = getOption("base_git")){
+	
     file <- file
     path <- file.path(base.git, repo, "R") 
     WD <- getwd()
