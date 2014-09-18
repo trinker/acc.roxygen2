@@ -18,7 +18,7 @@
 #' @importFrom qdap left_just
 #' @export
 search_repo <- function (..., repo = getOption("primary_repo"), base.git = getOption("base_git"), 
-    terms = NULL, split = "\\|", ignore.case = TRUE, perl = FALSE, fixed = FALSE) {
+    terms = NULL, split = "\\|", ignore.case = FALSE, perl = FALSE, fixed = FALSE) {
 
     path <- file.path(base.git, repo, "R")
     if (!is.null(terms)) {

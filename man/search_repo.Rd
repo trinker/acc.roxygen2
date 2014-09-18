@@ -5,7 +5,7 @@
 \usage{
 search_repo(..., repo = getOption("primary_repo"),
   base.git = getOption("base_git"), terms = NULL, split = "\\\\|",
-  ignore.case = TRUE, perl = FALSE, fixed = FALSE)
+  ignore.case = FALSE, perl = FALSE, fixed = FALSE)
 }
 \arguments{
 \item{repo}{Repo name.}
