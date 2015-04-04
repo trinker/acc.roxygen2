@@ -43,7 +43,7 @@ exbutton_statdoc <- function(path, extra, file = NULL) {
     mlocs <- rep(1:length(partxt), lens)
     nlocs <- mlocs[locs]
     names(nlocs) <- names(locs)
-    npartxt <- paste0("        ", mgsub(extra, "", partxt))
+    npartxt <- paste0("        ", qdap::mgsub(extra, "", partxt))
     ns.extras <- lapply(s.extras, function(x) {
         x[!x %in% extra]
     })

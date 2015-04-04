@@ -61,7 +61,7 @@ function(path, file = NULL, to.icon = NULL, readme = NULL,
             gsub(".*a></code>\\((.+?)\\)<br.*", "\\1", x)
         })
         s.extras <- lapply(extras, function(x) {
-            qcv(terms = x, split=",")
+            qdap::qcv(terms = x, split=",")
         })
     
         lens <- sapply(s.extras, length)
